@@ -1,0 +1,77 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        # Route to Core Services / Backend Layer
+        - id: core-backend-service
+          uri: http://127.0.0.1:8000
+          predicates:
+            - Path=/api/v1/**
+          filters:
+            - PreserveHostHeader
+
+        # Dedicated Food Surplus Service Route
+        - id: food-surplus-service
+          uri: lb://food-service
+          predicates:
+            - Path=/micro/food/**
+          filters:
+            - StripPrefix=1
+
+        # Dedicated AI Matching Service Route
+        - id: matching-decision-service
+          uri: lb://matching-service
+          predicates:
+            - Path=/micro/matching/**
+          filters:
+            - StripPrefix=1
+
+        # Dedicated Logistics & Telemetry Service Route
+        - id: logistics-dispatch-service
+          uri: lb://logistics-service
+          predicates:
+            - Path=/micro/logistics/**
+          filters:
+            - StripPrefix=1
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:5173"
+              - "http://127.0.0.1:5173"
+              - "http://localhost:3000"
+              - "http://127.0.0.1:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+            maxAge: 3600
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway,metrics

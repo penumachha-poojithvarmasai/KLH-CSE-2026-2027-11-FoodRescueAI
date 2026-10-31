@@ -1,0 +1,11 @@
+# FoodRescue AI Backend Git Ignore
+.env
+.env.*
+!.env.example
+*.db
+foodrescue.db
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.pytest_cache/

@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  eureka-server:
+    build:
+      context: ./eureka-server
+    container_name: foodrescue-eureka
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - foodrescue-net
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    container_name: foodrescue-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - foodrescue-net
+
+  food-service:
+    build:
+      context: ./food-service
+    container_name: foodrescue-food-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - foodrescue-net
+
+  matching-service:
+    build:
+      context: ./matching-service
+    container_name: foodrescue-matching-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - foodrescue-net
+
+  logistics-service:
+    build:
+      context: ./logistics-service
+    container_name: foodrescue-logistics-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - foodrescue-net
+
+networks:
+  foodrescue-net:
+    driver: bridge
