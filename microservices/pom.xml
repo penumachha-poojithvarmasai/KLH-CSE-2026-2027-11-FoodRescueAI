@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ai.foodrescue</groupId>
+    <artifactId>foodrescue-soa-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>FoodRescue AI - SOA Microservices Suite</name>
+    <description>Root POM for Eureka Server, API Gateway, and Spring Boot Domain Services</description>
+
+    <modules>
+        <module>eureka-server</module>
+        <module>api-gateway</module>
+        <module>food-service</module>
+        <module>matching-service</module>
+        <module>logistics-service</module>
+    </modules>
+</project>
