@@ -1,0 +1,14 @@
+{
+  "benchmarkRun": "Full Autonomous Agent Simulation Loop",
+  "executedStages": ["OBSERVE", "ANALYZE", "DECIDE", "ACT", "MONITOR"],
+  "totalExecutionTimeMs": 6900,
+  "stageTimingsMs": {
+    "OBSERVE": 1200,
+    "ANALYZE": 1500,
+    "DECIDE": 1500,
+    "ACT": 1500,
+    "MONITOR": 1200
+  },
+  "matchingEngineThroughput": "1,200 candidate recipient evaluations per second",
+  "stateMachineTransitions": "100% deterministic, 0 errors logged"
+}

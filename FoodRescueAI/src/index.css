@@ -1,0 +1,350 @@
+@import "tailwindcss";
+
+/* ============================================================
+   GOOGLE & GOOGLE GEMINI DESIGN SYSTEM THEME
+   Google 4-Colors (Blue, Green, Yellow, Red) + Gemini Sparkle (Violet/Pink)
+   ============================================================ */
+
+:root {
+  /* Google Workspace & Gemini Surfaces */
+  --bg-base:        #f8fafd;
+  --bg-elevated:    #ffffff;
+  --bg-card:        #ffffff;
+  --bg-card-2:      #f0f4f9;
+  --border:         #e1e3e1;
+  --border-subtle:  #dfe3e7;
+
+  /* Google Material You Typography */
+  --text-primary:   #1f1f1f;
+  --text-secondary: #444746;
+  --text-muted:     #747775;
+
+  /* Google 4-Colors */
+  --google-blue:    #1a73e8;
+  --google-blue-dark:#0b57d0;
+  --google-green:   #1e8e3e;
+  --google-green-dark:#137333;
+  --google-yellow:  #f9ab00;
+  --google-yellow-dark:#b06000;
+  --google-red:     #d93025;
+  --google-red-dark:#c5221f;
+
+  /* Google Gemini AI Identity */
+  --gemini-violet:  #7c3aed;
+  --gemini-pink:    #db2777;
+  --gemini-gradient: linear-gradient(135deg, #1a73e8 0%, #7c3aed 50%, #db2777 100%);
+
+  /* Accents */
+  --accent:         #1a73e8;
+  --accent-hover:   #0b57d0;
+  --accent-bg:      #e8f0fe;
+  --accent-border:  #c2e7ff;
+
+  /* Success (Google Green) */
+  --success:        #1e8e3e;
+  --success-bg:     #e6f4ea;
+  --success-border: #ceead6;
+
+  /* Warn (Google Yellow / Amber) */
+  --warn:           #ea8600;
+  --warn-bg:        #fef7e0;
+  --warn-border:    #feefc3;
+
+  /* Danger (Google Red) */
+  --danger:         #d93025;
+  --danger-bg:      #fce8e6;
+  --danger-border:  #fad2cf;
+
+  /* Shadows */
+  --shadow-card:    0 1px 3px 0 rgba(60,64,67,0.1), 0 1px 2px 0 rgba(60,64,67,0.06);
+  --shadow-card-hover: 0 4px 12px 0 rgba(60,64,67,0.15), 0 1px 3px 0 rgba(60,64,67,0.1);
+  --glow-gemini:    0 0 24px rgba(26, 115, 232, 0.25);
+  --scrollbar-bg:   #f8fafd;
+  --scrollbar-thumb:#dadce0;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* ============================================================
+   GOOGLE & GEMINI CARD SURFACES & CONTAINER STYLES
+   ============================================================ */
+
+.glass-panel {
+  background-color: #ffffff !important;
+  border: 1px solid #e1e3e1 !important;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.1) !important;
+  color: #1f1f1f !important;
+}
+
+.glass-panel-hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background-color: #f8fafd !important;
+  border-color: #c2e7ff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(26, 115, 232, 0.12) !important;
+}
+
+/* Google / Gemini Signature Gradient Utility */
+.gemini-gradient-text {
+  background: linear-gradient(135deg, #1a73e8 0%, #7c3aed 50%, #db2777 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gemini-gradient-bg {
+  background: linear-gradient(135deg, #1a73e8 0%, #7c3aed 50%, #db2777 100%);
+}
+
+.gemini-gradient-btn {
+  background: linear-gradient(135deg, #1a73e8 0%, #7c3aed 50%, #db2777 100%);
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.gemini-gradient-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px 0 rgba(26, 115, 232, 0.3);
+}
+
+/* ============================================================
+   GLOBAL COLOR NORMALIZATION & CONTRAST FIXES
+   (Resolves all pale/washed-out text bugs across light mode cards)
+   ============================================================ */
+
+/* Surface cards normalized to clean Google Material white */
+.bg-slate-950,
+.bg-slate-950\/90,
+.bg-slate-950\/80,
+.bg-slate-950\/70,
+.bg-slate-950\/60,
+.bg-slate-950\/40 {
+  background-color: #ffffff !important;
+  border-color: #e1e3e1 !important;
+}
+
+.bg-slate-900,
+.bg-slate-900\/90,
+.bg-slate-900\/80,
+.bg-slate-900\/70,
+.bg-slate-900\/60,
+.bg-slate-900\/50,
+.bg-slate-900\/40 {
+  background-color: #ffffff !important;
+  border-color: #e1e3e1 !important;
+}
+
+/* Secondary surface (Google Gemini container tint) */
+.bg-slate-800,
+.bg-slate-800\/90,
+.bg-slate-800\/80,
+.bg-slate-800\/70,
+.bg-slate-800\/50,
+.bg-slate-800\/40,
+.bg-slate-800\/30 {
+  background-color: #f0f4f9 !important;
+  border-color: #e1e3e1 !important;
+}
+
+.border-slate-800,
+.border-slate-800\/80,
+.border-slate-800\/60,
+.border-slate-700,
+.border-slate-700\/60,
+.border-slate-700\/50 {
+  border-color: #e1e3e1 !important;
+}
+
+/* Primary text */
+.text-slate-100,
+.text-slate-200 {
+  color: #1f1f1f !important;
+}
+
+/* Secondary text */
+.text-slate-300,
+.text-slate-400 {
+  color: #444746 !important;
+}
+
+/* Muted text */
+.text-slate-500 {
+  color: #747775 !important;
+}
+
+/* ============================================================
+   HIGH-CONTRAST ACCESSIBLE COLOR MAPPINGS (FIXES WASHED-OUT TEXT)
+   ============================================================ */
+
+/* Gemini Purple / Violet */
+.text-purple-300,
+.text-purple-400,
+.text-violet-300,
+.text-violet-400 {
+  color: #6b21a8 !important;
+}
+.bg-purple-500\/10,
+.bg-purple-500\/20,
+.bg-purple-500\/30 {
+  background-color: #f3e8fd !important;
+  border-color: #e9d5ff !important;
+  color: #6b21a8 !important;
+}
+
+/* Google Blue / Indigo */
+.text-indigo-300,
+.text-indigo-400,
+.text-blue-300,
+.text-blue-400 {
+  color: #0b57d0 !important;
+}
+.bg-indigo-500\/10,
+.bg-indigo-500\/20,
+.bg-indigo-500\/30,
+.bg-blue-500\/10,
+.bg-blue-500\/20,
+.bg-blue-500\/30 {
+  background-color: #e8f0fe !important;
+  border-color: #c2e7ff !important;
+  color: #0b57d0 !important;
+}
+
+/* Cyan */
+.text-cyan-300,
+.text-cyan-400 {
+  color: #0e7490 !important;
+}
+.bg-cyan-500\/10,
+.bg-cyan-500\/20,
+.bg-cyan-500\/30 {
+  background-color: #e0f2fe !important;
+  border-color: #bae6fd !important;
+  color: #0e7490 !important;
+}
+
+/* Google Green (Food Recovery & Success) */
+.text-emerald-300,
+.text-emerald-400,
+.text-green-300,
+.text-green-400 {
+  color: #137333 !important;
+}
+.bg-emerald-500\/10,
+.bg-emerald-500\/20,
+.bg-emerald-500\/30,
+.bg-green-500\/10,
+.bg-green-500\/20,
+.bg-green-500\/30 {
+  background-color: #e6f4ea !important;
+  border-color: #ceead6 !important;
+  color: #137333 !important;
+}
+
+/* Google Yellow / Amber (Urgency & Warning) */
+.text-amber-300,
+.text-amber-400,
+.text-yellow-300,
+.text-yellow-400 {
+  color: #b06000 !important;
+}
+.bg-amber-500\/10,
+.bg-amber-500\/20,
+.bg-amber-500\/30,
+.bg-yellow-500\/10,
+.bg-yellow-500\/20,
+.bg-yellow-500\/30 {
+  background-color: #fef7e0 !important;
+  border-color: #feefc3 !important;
+  color: #b06000 !important;
+}
+
+/* Google Red (Alerts & Critical) */
+.text-rose-300,
+.text-rose-400,
+.text-red-300,
+.text-red-400 {
+  color: #c5221f !important;
+}
+.bg-rose-500\/10,
+.bg-rose-500\/20,
+.bg-rose-500\/30,
+.bg-red-500\/10,
+.bg-red-500\/20,
+.bg-red-500\/30 {
+  background-color: #fce8e6 !important;
+  border-color: #fad2cf !important;
+  color: #c5221f !important;
+}
+
+/* Inputs & Form Controls */
+input, select, textarea {
+  color: #1f1f1f !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #9aa0a6 !important;
+}
+
+/* Google Material You Text Selection Highlight */
+::selection {
+  background-color: #c2e7ff !important;
+  color: #001d35 !important;
+}
+
+::-moz-selection {
+  background-color: #c2e7ff !important;
+  color: #001d35 !important;
+}
+
+/* Pulse animation */
+@keyframes stagePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(26, 115, 232, 0);
+  }
+}
+
+.animate-stage-pulse {
+  animation: stagePulse 2s infinite;
+}
+
+/* Custom Google scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f8fafd; }
+::-webkit-scrollbar-thumb { background: #dadce0; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #bdc1c6; }
+
+/* ============================================================
+   LEAFLET MAP CUSTOM STYLING & POPUPS
+   ============================================================ */
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #1f1f1f !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 16px rgba(60, 64, 67, 0.15) !important;
+  border: 1px solid #e1e3e1 !important;
+  padding: 4px !important;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff !important;
+  border: 1px solid #e1e3e1 !important;
+}
+
+.leaflet-container {
+  font-family: inherit !important;
+}
