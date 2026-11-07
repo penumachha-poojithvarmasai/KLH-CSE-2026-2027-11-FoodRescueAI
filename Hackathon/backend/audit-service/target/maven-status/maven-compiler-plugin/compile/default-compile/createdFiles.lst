@@ -1,0 +1,8 @@
+com\courierproof\auditservice\entity\AuditRecord$AuditRecordBuilder.class
+com\courierproof\auditservice\entity\AuditRecord.class
+com\courierproof\auditservice\security\SecurityConfig.class
+com\courierproof\auditservice\service\AuditService.class
+com\courierproof\auditservice\AuditServiceApplication.class
+com\courierproof\auditservice\repository\AuditRecordRepository.class
+com\courierproof\auditservice\controller\AuditController.class
+com\courierproof\auditservice\dto\AuditEventRequest.class

@@ -1,0 +1,38 @@
+graph LR
+    subgraph Client Layer
+        Web["React Vite SPA"]
+    end
+
+    subgraph Gateway & Routing
+        GW["API Gateway (:8080)"]
+        REG["Eureka Server (:8761)"]
+    end
+
+    subgraph Autonomous Microservices
+        S1["Auth (:8081)"]
+        S2["Shipment (:8082)"]
+        S3["Evidence (:8083)"]
+        S4["Dispute (:8084)"]
+        S5["Audit (:8085)"]
+        S6["Notification (:8086)"]
+    end
+
+    subgraph Isolated Schemas
+        D1[("auth_db")]
+        D2[("ship_db")]
+        D3[("evid_db")]
+        D4[("disp_db")]
+        D5[("audit_db")]
+        D6[("notif_db")]
+    end
+
+    Web --> GW
+    GW -.-> REG
+    GW --> S1 & S2 & S3 & S4 & S5 & S6
+    S1 --> D1
+    S2 --> D2
+    S3 --> D3
+    S4 --> D4
+    S5 --> D5
+    S6 --> D6
+

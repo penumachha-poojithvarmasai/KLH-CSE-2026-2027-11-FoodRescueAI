@@ -1,0 +1,3 @@
+com\courierproof\apigateway\filter\CorrelationIdFilter.class
+com\courierproof\apigateway\config\GatewayConfig.class
+com\courierproof\apigateway\ApiGatewayApplication.class

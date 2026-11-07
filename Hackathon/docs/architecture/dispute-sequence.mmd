@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    actor Customer as Customer
+    participant UI as React Frontend
+    participant GW as API Gateway (:8080)
+    participant DS as Dispute Service (:8084)
+    participant SS as Shipment Service (:8082)
+    participant AS as Audit Service (:8085)
+    participant NS as Notification Service (:8086)
+
+    Customer->>UI: Submit Dispute ("Package Not Received", "CP-2024-001")
+    UI->>GW: POST /api/disputes (with Bearer JWT)
+    GW->>DS: Forward to lb://DISPUTE-SERVICE
+    DS->>SS: GET /api/shipments/track/CP-2024-001 (Cross-service check)
+    SS-->>DS: 200 OK (Shipment verified DELIVERED)
+    DS->>DS: Persist Dispute (Status: OPEN, Ref: DISP-2024-001)
+    DS->>AS: POST /api/audit/events (DISPUTE_CREATED)
+    AS-->>DS: 201 Created
+    DS->>NS: POST /api/notifications (User alert)
+    NS-->>DS: 201 Created
+    DS-->>GW: 201 Created (Dispute DTO)
+    GW-->>UI: 201 Created
+    UI-->>Customer: Display confirmation badge
+

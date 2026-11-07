@@ -1,0 +1,8 @@
+com\courierproof\evidenceservice\security\SecurityConfig.class
+com\courierproof\evidenceservice\entity\Evidence.class
+com\courierproof\evidenceservice\controller\EvidenceController.class
+com\courierproof\evidenceservice\entity\Evidence$EvidenceBuilder.class
+com\courierproof\evidenceservice\repository\EvidenceRepository.class
+com\courierproof\evidenceservice\service\EvidenceService.class
+com\courierproof\evidenceservice\security\JwtAuthFilter.class
+com\courierproof\evidenceservice\EvidenceServiceApplication.class

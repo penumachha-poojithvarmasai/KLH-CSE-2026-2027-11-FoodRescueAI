@@ -1,0 +1,22 @@
+graph TD
+    Client["React 19 Frontend<br>(Port 5173)"] -->|HTTP / Bearer JWT| Gateway["Spring Cloud API Gateway<br>(Port 8080)"]
+    Gateway -->|Discovery Lookup| Eureka["Netflix Eureka Registry<br>(Port 8761)"]
+    
+    Gateway -->|/api/auth/**| Auth["Auth Service<br>(Port 8081)"]
+    Gateway -->|/api/shipments/**| Shipment["Shipment Service<br>(Port 8082)"]
+    Gateway -->|/api/evidence/**| Evidence["Evidence Service<br>(Port 8083)"]
+    Gateway -->|/api/disputes/**| Dispute["Dispute Service<br>(Port 8084)"]
+    Gateway -->|/api/audit/**| Audit["Audit Service<br>(Port 8085)"]
+    Gateway -->|/api/notifications/**| Notif["Notification Service<br>(Port 8086)"]
+
+    Dispute -->|Validate Shipment| Shipment
+    Dispute -->|Log Action| Audit
+    Dispute -->|Dispatch Notification| Notif
+
+    Auth --> AuthDB[("courierproof_auth<br>(MySQL)")]
+    Shipment --> ShipDB[("courierproof_shipments<br>(MySQL)")]
+    Evidence --> EvidDB[("courierproof_evidence<br>(MySQL)")]
+    Dispute --> DispDB[("courierproof_disputes<br>(MySQL)")]
+    Audit --> AuditDB[("courierproof_audit<br>(MySQL)")]
+    Notif --> NotifDB[("courierproof_notifications<br>(MySQL)")]
+

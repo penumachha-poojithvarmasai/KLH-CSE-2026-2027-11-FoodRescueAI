@@ -1,0 +1,16 @@
+com\courierproof\shipmentservice\entity\Shipment.class
+com\courierproof\shipmentservice\dto\ShipmentTrackingResponse.class
+com\courierproof\shipmentservice\entity\ShipmentHistory$ShipmentHistoryBuilder.class
+com\courierproof\shipmentservice\security\JwtAuthFilter.class
+com\courierproof\shipmentservice\ShipmentServiceApplication.class
+com\courierproof\shipmentservice\service\ShipmentService.class
+com\courierproof\shipmentservice\dto\StatusUpdateRequest.class
+com\courierproof\shipmentservice\init\DataInitializer.class
+com\courierproof\shipmentservice\repository\ShipmentHistoryRepository.class
+com\courierproof\shipmentservice\entity\ShipmentHistory.class
+com\courierproof\shipmentservice\dto\ShipmentRequest.class
+com\courierproof\shipmentservice\entity\Shipment$ShipmentBuilder.class
+com\courierproof\shipmentservice\controller\ShipmentController.class
+com\courierproof\shipmentservice\dto\DashboardStats.class
+com\courierproof\shipmentservice\security\SecurityConfig.class
+com\courierproof\shipmentservice\repository\ShipmentRepository.class

@@ -1,0 +1,15 @@
+com\courierproof\disputeservice\dto\DisputeDetailResponse.class
+com\courierproof\disputeservice\dto\DisputeStats.class
+com\courierproof\disputeservice\repository\DisputeNoteRepository.class
+com\courierproof\disputeservice\entity\DisputeNote.class
+com\courierproof\disputeservice\service\DisputeService.class
+com\courierproof\disputeservice\entity\Dispute$DisputeBuilder.class
+com\courierproof\disputeservice\controller\DisputeController.class
+com\courierproof\disputeservice\dto\ResolveDisputeRequest.class
+com\courierproof\disputeservice\security\JwtAuthFilter.class
+com\courierproof\disputeservice\security\SecurityConfig.class
+com\courierproof\disputeservice\entity\DisputeNote$DisputeNoteBuilder.class
+com\courierproof\disputeservice\repository\DisputeRepository.class
+com\courierproof\disputeservice\dto\CreateDisputeRequest.class
+com\courierproof\disputeservice\DisputeServiceApplication.class
+com\courierproof\disputeservice\entity\Dispute.class

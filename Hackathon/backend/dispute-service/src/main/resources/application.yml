@@ -1,0 +1,44 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: dispute-service
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/courierproof_disputes?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:1234}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+jwt:
+  secret: ${JWT_SECRET:courierproof-super-secret-jwt-key-for-hackathon-2024-very-long}
+
+shipment:
+  service:
+    url: ${SHIPMENT_SERVICE_URL:http://localhost:8082}
+
+audit:
+  service:
+    url: ${AUDIT_SERVICE_URL:http://localhost:8085}
+
+notification:
+  service:
+    url: ${NOTIFICATION_SERVICE_URL:http://localhost:8086}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+

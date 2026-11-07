@@ -1,0 +1,8 @@
+com\courierproof\notificationservice\controller\NotificationController.class
+com\courierproof\notificationservice\model\Notification$NotificationBuilder.class
+com\courierproof\notificationservice\model\Notification.class
+com\courierproof\notificationservice\dto\CreateNotificationRequest.class
+com\courierproof\notificationservice\NotificationServiceApplication.class
+com\courierproof\notificationservice\security\SecurityConfig.class
+com\courierproof\notificationservice\service\NotificationService.class
+com\courierproof\notificationservice\repository\NotificationRepository.class
